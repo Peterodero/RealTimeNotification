@@ -21,24 +21,24 @@ This is a technical evaluation project that demonstrates:
 ## Features
 
 ### Core Functionality
-✅ Real-time notification feed with instant updates  
-✅ Socket.io connection with visual status indicator  
-✅ Mark notifications as read/unread  
-✅ Timestamp formatting (relative time display)  
-✅ Smooth scrolling with optimized FlatList  
+- Real-time notification feed with instant updates  
+- Socket.io connection with visual status indicator  
+- Mark notifications as read/unread  
+- Timestamp formatting (relative time display)  
+- Smooth scrolling with optimized FlatList  
 
 ### Responsive Design
-✅ Portrait and landscape orientation support  
-✅ Adapts to all mobile screen sizes (iPhone SE to Pro Max)  
-✅ Real-time layout updates on device rotation  
-✅ Safe area support for notched devices  
+- Portrait and landscape orientation support  
+- Adapts to all mobile screen sizes (iPhone SE to Pro Max)  
+- Real-time layout updates on device rotation  
+- Safe area support for notched devices  
 
 ### UI/UX
-✅ Clean, modern interface with blue color scheme  
-✅ Visual read/unread indicators (blue dots)  
-✅ Connection status badge (green/red)  
-✅ Empty state with helpful instructions  
-✅ Touch feedback on interactions  
+- Clean, modern interface with blue color scheme  
+- Visual read/unread indicators (blue dots)  
+- Connection status badge (green/red)  
+- Empty state with helpful instructions  
+- Touch feedback on interactions  
 
 ##  Getting Started
 
@@ -97,7 +97,7 @@ Before you begin, ensure you have the following installed:
    npm run android
    ```
 
-## 🧪 Testing Real-Time Functionality
+## Testing Real-Time Functionality
 
 The app uses a **mock Socket.io connection** for demonstration purposes (Option A from the requirements). This makes it easy to test without setting up a backend server.
 
@@ -122,23 +122,23 @@ The app uses a **mock Socket.io connection** for demonstration purposes (Option 
 
 ### Expected Behavior
 
-✅ **On App Launch:**
+**On App Launch:**
 - Connection status shows "Connected" (green dot)
 - Empty state message appears
 - "Simulate New Notification" button is visible
 
-✅ **When Simulating Notification:**
+**When Simulating Notification:**
 - New notification appears at the **top** of the list instantly
 - Notification has a **blue dot** (unread indicator)
 - **Timestamp** shows "Just now"
 - **No page refresh** required
 
-✅ **When Tapping Notification:**
+**When Tapping Notification:**
 - Blue dot changes to gray (read state)
 - Background color changes from light blue to white
 - Text weight changes from bold to normal
 
-✅ **Timestamp Updates:**
+**Timestamp Updates:**
 - "Just now" (< 1 minute)
 - "5m ago" (< 1 hour)
 - "2h ago" (< 24 hours)
@@ -228,7 +228,7 @@ interface NotificationItem {
 - Demonstrates real-time updates
 - Easy testing without backend
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Issue: App won't start
 ```bash
