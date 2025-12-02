@@ -25,13 +25,12 @@ export default function App() {
   const [isConnected, setIsConnected] = useState(false);
   const [socket, setSocket] = useState<Socket | null>(null);
 
-  // Responsive dimensions
   const { width, height } = useWindowDimensions();
   const isLandscape = width > height;
   const isSmallDevice = width < 375;
 
   useEffect(() => {
-    // Simulate connection immediately (no real server needed)
+    // Simulate connection immediately 
     console.log('Mock Socket connected');
     setIsConnected(true);
 
@@ -56,7 +55,25 @@ export default function App() {
     };
   }, []);
 
+  const toggleConnection = () => {
+    if (isConnected) {
+      console.log('Disconnecting socket...');
+      if (socket) {
+        socket.disconnect();
+      }
+      setIsConnected(false);
+    } else {
+      console.log('Reconnecting socket...');
+      setIsConnected(true);
+    }
+  };
+
   const simulateNotification = () => {
+    if (!isConnected) {
+      console.log('Cannot send notification: Socket disconnected');
+      return;
+    }
+
     const messages = [
       'New message from Peter',
       'Your order has been shipped',
@@ -143,7 +160,11 @@ export default function App() {
 
         <View style={styles.header}>
           <Text style={styles.headerTitle}>Notifications</Text>
-          <View style={styles.connectionStatus}>
+          <TouchableOpacity
+            style={styles.connectionStatus}
+            onPress={toggleConnection}
+            activeOpacity={0.7}
+          >
             <View
               style={[
                 styles.connectionDot,
@@ -153,7 +174,7 @@ export default function App() {
             <Text style={styles.connectionText}>
               {isConnected ? 'Connected' : 'Disconnected'}
             </Text>
-          </View>
+          </TouchableOpacity>
         </View>
 
         <FlatList
@@ -172,11 +193,20 @@ export default function App() {
         />
 
         <TouchableOpacity
-          style={styles.simulateButton}
+          style={[
+            styles.simulateButton,
+            !isConnected && styles.simulateButtonDisabled,
+          ]}
           onPress={simulateNotification}
           activeOpacity={0.8}
+          disabled={!isConnected}
         >
-          <Text style={styles.simulateButtonText}> Simulate New Notification</Text>
+          <Text style={[
+            styles.simulateButtonText,
+            !isConnected && styles.simulateButtonTextDisabled,
+          ]}>
+            {isConnected ? 'Simulate New Notification' : 'Socket Disconnected'}
+          </Text>
         </TouchableOpacity>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -377,5 +407,12 @@ const styles = StyleSheet.create({
   },
   simulateButtonTextSmall: {
     fontSize: 15,
+  },
+  simulateButtonDisabled: {
+    backgroundColor: '#94a3b8',
+    opacity: 0.6,
+  },
+  simulateButtonTextDisabled: {
+    opacity: 0.8,
   },
 });
