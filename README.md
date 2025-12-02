@@ -124,13 +124,15 @@ The app uses a **mock Socket.io connection** for demonstration purposes (Option 
 
 **On App Launch:**
 - Connection status shows "Connected" (green dot)
+- When the connection status button is tapped it is toggled to disconnected and vice versa
+- When disconnected,no notification can be triggered
 - Empty state message appears
-- "Simulate New Notification" button is visible
+- "Simulate New Notification"/ "Socket disconnected"(When socket is disconnected) button is visible
 
 **When Simulating Notification:**
 - New notification appears at the **top** of the list instantly
 - Notification has a **blue dot** (unread indicator)
-- **Timestamp** shows "Just now"
+- **Timestamp** shows "Just now" and increases as time goes
 - **No page refresh** required
 
 **When Tapping Notification:**
