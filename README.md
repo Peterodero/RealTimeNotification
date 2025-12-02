@@ -57,7 +57,7 @@ Before you begin, ensure you have the following installed:
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/Peterodero/RealTimeNotification.git
-   cd notification-app
+   cd RealTimeNotification
    ```
 
 2. **Install dependencies:**
@@ -146,7 +146,7 @@ The app uses a **mock Socket.io connection** for demonstration purposes (Option 
 - "2h ago" (< 24 hours)
 - Full date (> 24 hours)
 
-## 📱 Responsive Design Testing
+## Responsive Design Testing
 
 ### Test Portrait Mode
 1. Launch app in portrait (default)
